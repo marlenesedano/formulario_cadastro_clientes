@@ -1,3 +1,22 @@
+"use strict";
+
+const preencherFormulario = (address) => {
+  document.getElementById("address").value = address.logradouro;
+  document.getElementById("district").value = address.bairro;
+  document.getElementById("city").value = address.localidade;
+  document.getElementById("uf").value = address.uf;
+  console.log(address);
+};
+
+const zipSearch = async () => {
+  const zip = document.getElementById("zip").value;
+  const url = `http://viacep.com.br/ws/${zip}/json/`;
+  const dice = await fetch(url);
+  const address = await dice.json();
+  preencherFormulario(address);
+};
+document.getElementById("zip").addEventListener("focusout", zipSearch);
+
 let cliente = {};
 
 function cadastrar() {
@@ -25,7 +44,6 @@ function cadastrar() {
     estado,
   };
 
-  console.log(cliente);
   const formattedClient = `
   
   <h1>Dados Inseridos</h1>
