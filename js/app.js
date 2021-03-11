@@ -1,19 +1,37 @@
 "use strict";
 
-const preencherFormulario = (address) => {
+const clearForm = (address) => {
+  document.getElementById("address").value = " ";
+  document.getElementById("district").value = " ";
+  document.getElementById("city").value = " ";
+  document.getElementById("uf").value = " ";
+};
+
+const fillForm = (address) => {
   document.getElementById("address").value = address.logradouro;
   document.getElementById("district").value = address.bairro;
   document.getElementById("city").value = address.localidade;
   document.getElementById("uf").value = address.uf;
-  console.log(address);
 };
 
+const validZip = (zip) => zip.length == 8 && /^[0-9]+$/.test(zip);
+
 const zipSearch = async () => {
+  clearForm();
   const zip = document.getElementById("zip").value;
   const url = `http://viacep.com.br/ws/${zip}/json/`;
-  const dice = await fetch(url);
-  const address = await dice.json();
-  preencherFormulario(address);
+  if (validZip(zip)) {
+    const dice = await fetch(url);
+    const address = await dice.json();
+
+    if (address.hasOwnProperty("erro")) {
+      document.getElementById("address").value = "Cep não encontrado!";
+    } else {
+      fillForm(address);
+    }
+  } else {
+    document.getElementById("address").value = "Cep Invalido!";
+  }
 };
 document.getElementById("zip").addEventListener("focusout", zipSearch);
 
