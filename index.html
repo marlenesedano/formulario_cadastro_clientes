@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <header>
+    <h1>Cadastro de Clientes</h1>
+  </header>
+
+  <body>
+    <form class="formulario">
+      <fieldset>
+        <legend>Formulário</legend>
+        <label>Nome:</label><br /><input
+          class="nome text_input"
+          type="text"
+        /><br />
+        <label>Email:</label><br /><input
+          class="email text_input"
+          type="email"
+        /><br />
+        <label>CPF/CNPJ:</label><br /><input
+          class="cpf_cnpj text_input"
+          type="number"
+        /><br />
+        <label>Telefone:</label><br /><input
+          class="telefone text_input"
+          type="number"
+        /><br />
+        <label>Cep:</label><br /><input
+          class="cep text_input"
+          type="number"
+        /><br />
+        <label>Lagradouro:</label><br /><input
+          class="rua text_input"
+          type="text"
+        /><br />
+        <label>Numero:</label><br /><input
+          class="numero text_input"
+          type="text"
+        /><br />
+        <label>Bairro:</label><br /><input
+          class="bairro text_input"
+          type="text"
+        /><br />
+        <label>Cidade:</label><br /><input
+          class="cidade text_input"
+          type="text"
+        /><br />
+        <label>Estado:</label><br /><input
+          class="estado text_input"
+          type="text"
+        /><br />
+      </fieldset>
+    </form>
+    <div class="btn">
+      <input id="btn_send" id="myBtn" type="submit" value="Enviar" />
+    </div>
+
+    <!-- teste modal -->
+
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="dados">Some text in the Modal..</p>
+      </div>
+    </div>
+  </body>
+  <script src="/js/app.js"></script>
+</html>
