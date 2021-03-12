@@ -1,3 +1,4 @@
+//Validation Zip
 "use strict";
 
 const clearForm = (address) => {
@@ -35,12 +36,14 @@ const zipSearch = async () => {
 };
 document.getElementById("zip").addEventListener("focusout", zipSearch);
 
+//gets fields
+
 let cliente = {};
 
 function cadastrar() {
   const nome = document.querySelector(".nome").value;
   const email = document.querySelector(".email").value;
-  const cpf = document.querySelector(".cpf_cnpj").value;
+  const cpf = document.querySelector(".cpf").value;
   const telefone = document.querySelector(".telefone").value;
   const cep = document.querySelector(".cep").value;
   const lagradouro = document.querySelector(".rua").value;
@@ -80,34 +83,30 @@ function cadastrar() {
   return formattedClient;
 }
 
+//Validation cpf
+
 document.getElementById("btn_send").addEventListener("click", () => {
   cadastrar();
 });
 
-// Teste Modal
+// Modal
 
-// Get the modal
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
 var btn = document.getElementById("btn_send");
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
 btn.onclick = function () {
   modal.style.display = "block";
   var dados = document.getElementById("dados");
   dados.innerHTML = cadastrar();
 };
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function () {
   modal.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
